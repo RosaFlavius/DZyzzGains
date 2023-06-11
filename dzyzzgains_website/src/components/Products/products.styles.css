@@ -1,0 +1,9 @@
+.dashboard_menu {
+  display: flex;
+  justify-content: flex-start;
+  align-self: flex-start;
+}
+.container-products.container-products {
+  display: flex;
+  padding: 20px;
+}

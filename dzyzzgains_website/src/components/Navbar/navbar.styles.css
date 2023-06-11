@@ -1,0 +1,71 @@
+.container-navbar.container-navbar {
+  margin: 0;
+  background-color: white;
+  box-shadow: 0px -3px 4px 0px rgba(107, 126, 190, 4%),
+    0px 8px 16px 0px rgba(107, 126, 190, 16%);
+  z-index: 3;
+}
+.user_text {
+  color: #4db6ac;
+  font-size: 20px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.grid-item.grid-item.grid-item {
+  padding: 0px;
+  margin: 0px;
+}
+.left-container.left-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.title-text {
+  font-weight: bold;
+  text-align: center;
+}
+.right-container.right-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.cart-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s ease;
+}
+.cart-icon:hover {
+  background-color: #e9f5f5;
+  transform: scale(1.1);
+}
+
+.menu-paper {
+  overflow: visible;
+  filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.32));
+  margin-top: 0.5rem;
+}
+
+.menu-paper .MuiAvatar-root {
+  width: 32px;
+  height: 32px;
+  margin-left: -0.5rem;
+  margin-right: 1rem;
+}
+
+.menu-paper:before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 14px;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  transform: translateY(-50%) rotate(45deg);
+  z-index: 0;
+}
