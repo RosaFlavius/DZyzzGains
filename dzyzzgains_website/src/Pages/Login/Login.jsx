@@ -69,24 +69,24 @@ const Login = ({ logIn }) => {
   };
 
   const checkPassword = async (email, password) => {
-    let response;
-    try {
-      response = await axios.get(
-        "https://localhost:7177/api/User/users/" + `${email}`
-      );
-      if (response.data) {
-        if (password === response.data.password) {
-          return true;
+    await axios
+      .post("https://localhost:7177/api/User/login", {
+        email: email,
+        password: password,
+      })
+      .then((resp) => {
+        if (resp.data) {
+          console.log(resp.data);
+          return resp.data.isLoggedIn;
         }
-      }
-    } catch (e) {
-      return false;
-    }
-    toast.error("Password doesn't match the account!", {
-      position: "top-center",
-      autoClose: 1000,
-    });
-    return false;
+      })
+      .catch(() => {
+        toast.error("Wrong credentials!", {
+          position: "top-center",
+          autoClose: 1000,
+        });
+        return false;
+      });
   };
 
   const notify = (response, type) => {
@@ -119,7 +119,7 @@ const Login = ({ logIn }) => {
 
   const handleSubmitLogin = async (data) => {
     const emailValidation = await validateExistantEmail(data.email);
-    const passwordChecked = await checkPassword(data.email, data.password);
+    await checkPassword(data.email, data.password);
     if (!emailValidation) {
       setExistantEmail(false);
       return;

@@ -1,4 +1,5 @@
-﻿using Domain.RepositoryPattern;
+﻿using Application.DTOs;
+using Domain.RepositoryPattern;
 using Domain.Users;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -42,14 +43,14 @@ namespace Application.Repositories
             user = item;
             return user;
 
-            
+
         }
 
         public async Task<User> GetUser(Guid id)
         {
             var user = await _dbContext.Users.FirstOrDefaultAsync(item => item.UserId == id);
 
-            if(user != null)
+            if (user != null)
             {
                 return user;
             }

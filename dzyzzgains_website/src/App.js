@@ -20,6 +20,7 @@ import Footer from "./components/Footer/Footer";
 import { connect } from "react-redux";
 import Favorite from "./Pages/Favorite/Favorite";
 import Wishlist from "./Pages/Wishlist/Wishlist";
+import UpdateUserPage from "./Pages/UpdateUserPage/UpdateUserPage";
 
 function App({ admin }) {
   return (
@@ -44,6 +45,7 @@ function App({ admin }) {
             <Route exact path="/wishlist" element={<Wishlist />} />
             <Route exact path="/cart" element={<Cart />} />
             <Route exact path="/favorite" element={<Favorite />} />
+            <Route exact path="/profile" element={<UpdateUserPage />} />
             <Route exact path="/admin" element={<AdminPage />} />
             <Route
               exact

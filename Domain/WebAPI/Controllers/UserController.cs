@@ -1,4 +1,5 @@
 ﻿using Application.Commands;
+using Application.Commands.Users;
 using Application.Queries;
 using Application.Queries.Users;
 using AutoMapper;
@@ -86,6 +87,14 @@ namespace WebAPI.Controllers
             var res = await _mediator.Send(command);
 
             return Ok(res);
+        }
+
+        [HttpPost]
+        [Route("login")]
+        public async Task<IActionResult> LoginUser([FromBody] LoginUserCommand command)
+        {
+            var response = await _mediator.Send(command);
+            return Ok(response);
         }
 
     }

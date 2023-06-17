@@ -176,9 +176,11 @@ function Navbar({
                 transformOrigin={{ horizontal: "right", vertical: "top" }}
                 anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
               >
-                <MenuItem onClick={handleClose}>
-                  <Avatar /> Profile
-                </MenuItem>
+                <Link to={"/profile"} style={{ textDecoration: "none" }}>
+                  <MenuItem>
+                    <Avatar /> Profile
+                  </MenuItem>
+                </Link>
                 <Divider />
                 <Link
                   to={"/"}

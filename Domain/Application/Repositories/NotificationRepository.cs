@@ -33,6 +33,36 @@ namespace Application.Repositories
             return await _dbContext.Notifications.Where(active => active.IsUserNotified == false && active.ProductId == productId).ToListAsync();
         }
 
+        public async Task<IEnumerable<NotificationRequest>> GetAllActiveNotificationsByEmail(string email)
+        {
+            return await _dbContext.Notifications.Where(notification => notification.UserEmail == email && notification.IsUserNotified == false).ToListAsync();
+        }
+
+
+
+        public async Task<IEnumerable<NotificationRequest>> UpdateNotifcationByEmail(string oldEmail, string newEmail)
+        {
+            var notifications = await GetAllActiveNotificationsByEmail(oldEmail);
+            var activeNotifications = notifications.ToList();
+            if (notifications is null)
+            {
+                return null;
+            }
+            foreach (var n in activeNotifications)
+            {
+                var index = activeNotifications.FindIndex(i => i.NotificationId == n.NotificationId);
+                activeNotifications[index].UserEmail = newEmail;
+            }
+            foreach (var n in activeNotifications)
+            {
+
+                _dbContext.Notifications.Update(n);
+
+            }
+            await _dbContext.SaveChangesAsync();
+            return activeNotifications;
+
+        }
 
         public async Task<NotificationRequest> UpdateActiveNotification(Guid notificationId)
         {

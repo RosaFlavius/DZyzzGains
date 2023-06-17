@@ -14,6 +14,8 @@ namespace Domain.RepositoryPattern
         public Task<IEnumerable<NotificationRequest>> GetAllActiveNotificationsForProduct(Guid productId);
         public Task<NotificationRequest> GetNotification(Guid notificationId);
         public Task<NotificationRequest> UpdateActiveNotification(Guid notificationId);
+        public Task<IEnumerable<NotificationRequest>> UpdateNotifcationByEmail(string oldEmail, string newEmail);
+        public Task<IEnumerable<NotificationRequest>> GetAllActiveNotificationsByEmail(string email);
         public Task<bool> DeleteNotification(Guid userId, Guid productId);
     }
 }
