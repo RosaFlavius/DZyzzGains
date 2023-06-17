@@ -9,24 +9,10 @@ namespace Domain.Products
 {
     public class Equipment : Product
     {
-        public Equipment(EquipmentType typeOfEquipment, string name, string description, string brand, float price, string img, bool inStock) : base(name, ProductCategory.Equipment, description, brand, price, img, inStock)
+        public Equipment(EquipmentType typeOfEquipment, string name, string description, string brand, float price, string img, bool inStock) 
+                        : base(name, ProductCategory.Equipment, description, brand, price, img, inStock)
         {
             TypeOfEquipment = typeOfEquipment;
-
-            if (string.IsNullOrEmpty(description))
-                throw new ArgumentNullException("Null_description");
-
-            if (string.IsNullOrEmpty(name))
-                throw new ArgumentNullException("Null_name");
-
-            if (string.IsNullOrEmpty(brand))
-                throw new ArgumentNullException("Null_company");
-
-            if (string.IsNullOrEmpty(img))
-                throw new ArgumentNullException("Null_image");
-
-            if (price <= 0)
-                throw new ArgumentOutOfRangeException("Wrong_PriceRange");
         }
 
 

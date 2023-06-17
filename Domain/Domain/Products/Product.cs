@@ -9,33 +9,6 @@ namespace Domain.Products
 
     public class Product
     {
-        public Product(string name, ProductCategory category ,string description, string brand, float price, string img, bool inStock)
-        {
-            Name = name;
-            Description = description;
-            Brand = brand;
-            Price = price;
-            Category = category;
-            Img = img;
-            InStock = inStock;
-
-            if (string.IsNullOrEmpty(description))
-                throw new ArgumentNullException("Null_description");
-
-            if (string.IsNullOrEmpty(name))
-                throw new ArgumentNullException("Null_name");
-
-            if (string.IsNullOrEmpty(brand))
-                throw new ArgumentNullException("Null_company");
-
-            if (price <= 0)
-                throw new ArgumentOutOfRangeException("Wrong_PriceRange");
-        }
-
-        public Product()
-        {
-
-        }
         public Guid Id { get; set; } = Guid.NewGuid();
 
         public string Name { get; set; }
@@ -59,6 +32,22 @@ namespace Domain.Products
         }
 
         public bool InStock { get; set; }
+        public Product(string name, ProductCategory category ,string description, string brand, float price, string img, bool inStock)
+        {
+            Name = name;
+            Description = description;
+            Brand = brand;
+            Price = price;
+            Category = category;
+            Img = img;
+            InStock = inStock;
+        }
+
+        public Product()
+        {
+
+        }
+        
 
 
     }

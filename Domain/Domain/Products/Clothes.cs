@@ -11,26 +11,12 @@ namespace Domain.Products
     {
         
 
-        public Clothes(ClothesSize size, ClothesGender gender, string name, string description, string brand, float price, string img, bool inStock) : base(name, ProductCategory.Clothes, description, brand, price, img, inStock)
+        public Clothes(ClothesSize size, ClothesGender gender, string name, string description, string brand, float price, string img, bool inStock) 
+                        : base(name, ProductCategory.Clothes, description, brand, price, img, inStock)
         {
             
             Size = size;
             Gender = gender;
-
-            if (string.IsNullOrEmpty(description))
-                throw new ArgumentNullException("Null_description");
-
-            if (string.IsNullOrEmpty(name))
-                throw new ArgumentNullException("Null_name");
-
-            if (string.IsNullOrEmpty(brand))
-                throw new ArgumentNullException("Null_company");
-
-            if (string.IsNullOrEmpty(img))
-                throw new ArgumentNullException("Null_image");
-
-            if (price <= 0)
-                throw new ArgumentOutOfRangeException("Wrong_PriceRange");
 
         }
 

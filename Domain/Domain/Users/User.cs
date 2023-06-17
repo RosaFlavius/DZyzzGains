@@ -15,7 +15,6 @@ namespace Domain.Users
         {
 
         }
-
         public User(string firstName, string lastName, string email, string password, string dateOfBirth, string phone, string country, string city, string address, bool admin)
         {
             FirstName = firstName;
@@ -30,8 +29,6 @@ namespace Domain.Users
             Admin = admin;
         }
 
-        
-
         public Guid UserId { get; set; } =  Guid.NewGuid();
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -44,6 +41,7 @@ namespace Domain.Users
         public string Address { get; set; }
         public bool Admin { get; set; }
         public ICollection<NotificationRequest> Notifications { get; set; }
+        public ICollection<NotificationOrder> OrderNotifications { get; set; }
 
 
     }
