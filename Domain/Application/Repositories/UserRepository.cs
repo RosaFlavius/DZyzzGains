@@ -31,7 +31,7 @@ namespace Application.Repositories
             var user = _dbContext.Users.FirstOrDefault(item => item.UserId == id);
             if (user != null)
             {
-                _dbContext.Remove(user);
+                _dbContext.Users.Remove(user);
                 return true;
             }
             return false;
@@ -39,11 +39,8 @@ namespace Application.Repositories
 
         public User UpdateUser(User item)
         {
-            var user = _dbContext.Users.FirstOrDefault(i => i.UserId == item.UserId);
-            user = item;
+            var user = _dbContext.Users.FirstOrDefault(i => i.UserId == item.UserId);   
             return user;
-
-
         }
 
         public async Task<User> GetUser(Guid id)

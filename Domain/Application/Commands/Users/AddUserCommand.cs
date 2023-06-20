@@ -10,9 +10,6 @@ namespace Application.Commands
 {
     public class AddUserCommand : IRequest<User>
     {
-        public AddUserCommand()
-        {
-        }
 
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -24,7 +21,6 @@ namespace Application.Commands
         public string City { get; set; }
         public string Address { get; set; }
         public bool Admin { get; set; }
-
 
     }
 }

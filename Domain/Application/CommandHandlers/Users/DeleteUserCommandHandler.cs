@@ -21,7 +21,6 @@ namespace Application.CommandHandlers
 
         public async Task<bool> Handle(DeleteUserCommand request, CancellationToken cancellationToken)
         {
-            var user = await _userRepo.GetUser(request.Id);
             bool result = _userRepo.DeleteUser(request.Id);
             await _userRepo.SaveChangesAsync(); 
             return await Task.FromResult(result);

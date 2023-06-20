@@ -29,25 +29,15 @@ namespace Infrastructure.Data
         public DbSet<NotificationOrder> OrdersNotifications { get; set; }
         /*protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server=DESKTOP-465R8PC\\SQLEXPRESS;Database=DZyzzDatabaseLicenta;Trusted_Connection=true");
+            optionsBuilder.UseSqlServer("Server=DESKTOP-465R8PC\\SQLEXPRESS;Database=DZyzzGainsLicentaDatabase;Trusted_Connection=true");
         }
 */
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            /*modelBuilder.Entity<Order>()
-                .HasMany(order => order.Products)
-                .WithMany(product => product.Orders)
-                .UsingEntity<OrderProducts>(
-                op=>op.HasOne(x=>x.Product).WithMany().HasForeignKey(x=>x.ProductId),
-                op=>op.HasOne(x=>x.Order).WithMany().HasForeignKey(x=>x.OrderId)
-                );*/
-
-            
+        {     
             modelBuilder.Entity<OrderProducts>()
                 .HasKey(scp => new { scp.OrderId, scp.ProductId });
             modelBuilder.Entity<NotificationRequest>().HasKey(x => x.NotificationId);
             modelBuilder.Entity<NotificationOrder>().HasKey(x => x.NotificationId);
-            /*modelBuilder.Entity<NotificationRequest>().Property(x => x.NotificationId).ValueGeneratedOnAdd();*/
 
         }
     }
