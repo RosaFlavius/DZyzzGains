@@ -1,4 +1,23 @@
 .container-home-layout {
   padding: 5px;
-  height: 89vh;
+  height: 93vh;
+  overflow: hidden;
+}
+.logo-img-admin.logo-img-admin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  box-shadow: 0px -3px 4px 0px rgba(107, 126, 190, 4%),
+    0px 8px 16px 0px rgba(107, 126, 190, 16%);
+
+  margin-left: 2px;
+  height: 100%;
+  width: 100%;
+}
+.cont-img-admin.cont-img-admin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 19px;
 }

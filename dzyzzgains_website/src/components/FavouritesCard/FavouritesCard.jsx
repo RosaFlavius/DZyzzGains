@@ -65,8 +65,8 @@ function FavouritesCard({ item, productsAddedToWishlist }) {
                   src={item.img}
                   style={{
                     objectFit: "contain",
-                    height: "150px",
-                    width: "150px",
+                    height: "250px",
+                    width: "250px",
                   }}
                 />
               </Grid>
@@ -79,31 +79,31 @@ function FavouritesCard({ item, productsAddedToWishlist }) {
               className="center-item-fav"
               style={{ padding: "20px" }}
             >
-              <Grid item xs={8}>
+              <Grid item xs={12}>
                 <span className="text-fav">
                   <b>Brand: </b>
                   {item.brand}
                 </span>
               </Grid>
-              <Grid item xs={8}>
+              <Grid item xs={12}>
                 <span className="text-fav">
                   <b>Price: </b>
                   {item.price}$
                 </span>
               </Grid>
-              <Grid item xs={8}>
+              <Grid item xs={12}>
                 <span className="text-fav">
                   <b>Description: </b>
                   {item.description}
                 </span>
               </Grid>
-              <Grid item xs={8}>
+              <Grid item xs={12}>
                 <span className="text-fav">
                   <b>Category: </b>
                   {Category[item.category]}
                 </span>
               </Grid>
-              <Grid item xs={8}>
+              <Grid item xs={12}>
                 {verifyCategory()}
               </Grid>
             </Grid>

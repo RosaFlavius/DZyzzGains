@@ -51,7 +51,6 @@ function Product({
   isLoggedIn,
 }) {
   const [expanded, setExpanded] = useState(false);
-  const [isInWishlist, setIsInWishlist] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -68,7 +67,6 @@ function Product({
   };
 
   const handleAddRemoveFromWishlist = async () => {
-    console.log(isAddedToWishlist());
     if (!isAddedToWishlist()) {
       await axios
         .post(`https://localhost:7177/api/Notification/${userEmail}`, {
@@ -212,11 +210,10 @@ function Product({
       </CardActions>
       <Collapse in={expanded} timeout="auto" unmountOnExit>
         <CardContent style={{ display: "flex", flexDirection: "column" }}>
+          {verifyCategory()}
           <span>
             <b>Description:</b> {item.description}
           </span>
-
-          {verifyCategory()}
         </CardContent>
       </Collapse>
     </Card>

@@ -6,7 +6,7 @@ export const newClothesSchema = yup.object().shape({
     .string()
     .required("Name is required")
     .min(3, "Name must have at least 3 characters")
-    .max(20, "Name can't have more than 30 characters"),
+    .max(50, "Name can't have more than 50 characters"),
   brand: yup
     .string()
     .required("Brand is required")
@@ -20,7 +20,7 @@ export const newClothesSchema = yup.object().shape({
     .string()
     .required("Description is required")
     .min(15, "Description must have at least 15 characters")
-    .max(200, "Description can't have more than 200 characters"),
+    .max(1200, "Description can't have more than 1200 characters"),
   gender: yup.number().required("Please select one gender").min(1).max(3),
   size: yup.number().required("Please select one size").min(1).max(6),
 });

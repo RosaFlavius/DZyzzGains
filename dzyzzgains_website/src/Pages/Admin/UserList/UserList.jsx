@@ -5,7 +5,7 @@ import { DeleteOutline } from "@mui/icons-material";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { Grid } from "@mui/material";
+import { Button, Chip, Grid, IconButton } from "@mui/material";
 
 export default function UserList() {
   const [components, setComponents] = useState([]);
@@ -35,7 +35,7 @@ export default function UserList() {
   };
 
   const handleDelete = async (id) => {
-    const response = await axios
+    await axios
       .delete(`https://localhost:7177/api/User/${id}`)
       .catch((e) => console.log(e));
   };
@@ -45,63 +45,71 @@ export default function UserList() {
   }, [components]);
 
   const columns = [
-    { field: "email", headerName: "Email", width: 200 },
+    { field: "email", headerName: "Email", width: 250 },
     {
-      field: "firstName",
-      headerName: "FirstName",
-      width: 190,
-    },
-    {
-      field: "lastName",
-      headerName: "LastName",
-      width: 200,
+      field: "name",
+      headerName: "Name",
+      renderCell: (params) => {
+        return (
+          <span>
+            {params.row.lastName} {params.row.firstName}
+          </span>
+        );
+      },
+      width: 180,
     },
     {
       field: "dateOfBirth",
       headerName: "DateOfBirth",
-      width: 200,
+      width: 120,
     },
     {
       field: "phone",
       headerName: "Phone",
-      width: 200,
-    },
-    {
-      field: "country",
-      headerName: "Country",
-      width: 160,
-    },
-    {
-      field: "city",
-      headerName: "City",
-      width: 160,
+      width: 120,
     },
     {
       field: "address",
       headerName: "Address",
-      width: 200,
+      renderCell: (params) => {
+        return (
+          <span>
+            {params.row.city} | {params.row.country} | {params.row.address}
+          </span>
+        );
+      },
+      width: 430,
     },
     {
       field: "admin",
       headerName: "IsAdmin",
-      width: 200,
+      renderCell: (params) => {
+        return (
+          <Chip
+            label={params.row.admin ? "Yes" : "No"}
+            className={params.row.admin ? "chip-inStock" : "chip-outOfStock"}
+          />
+        );
+      },
+      width: 110,
     },
 
     {
       field: "action",
       headerName: "Action",
-      width: 150,
+      width: 160,
       renderCell: (params) => {
         return (
-          <>
+          <div>
             <Link to={"/admin/admin_user/" + params.row.id}>
-              <button className="userListEdit">Edit</button>
+              <Button variant="contained" className="productListEdit">
+                Edit
+              </Button>
             </Link>
-            <DeleteOutline
-              className="userListDelete"
-              onClick={() => handleDelete(params.row.id)}
-            />
-          </>
+            <IconButton onClick={() => handleDelete(params.row.id)}>
+              <DeleteOutline className="productListDelete" />
+            </IconButton>
+          </div>
         );
       },
     },

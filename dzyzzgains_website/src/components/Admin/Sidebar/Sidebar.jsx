@@ -68,7 +68,7 @@ export default function Sidebar() {
               }
             >
               <AddCircleOutlineOutlinedIcon className="sidebarIcon" />
-              AddClothesProduct
+              Add Clothes to store
             </li>
           </Link>
           <Link to="/admin/admin_newEquipment" className="link">
@@ -80,7 +80,7 @@ export default function Sidebar() {
               }
             >
               <AddCircleOutlineOutlinedIcon className="sidebarIcon" />
-              AddEquipmentProduct
+              Add Equipment to store
             </li>
           </Link>
           <Link to="/admin/admin_newSupplement" className="link">
@@ -92,7 +92,7 @@ export default function Sidebar() {
               }
             >
               <AddCircleOutlineOutlinedIcon className="sidebarIcon" />
-              AddSupplementProduct
+              Add Supplement to store
             </li>
           </Link>
         </ul>
@@ -109,7 +109,7 @@ export default function Sidebar() {
               }
             >
               <AddCircleOutlineOutlinedIcon className="sidebarIcon" />
-              AddUser
+              Add new user
             </li>
           </Link>
         </ul>

@@ -60,8 +60,8 @@ function WishlistCard({ item, userId }) {
                   src={item.img}
                   style={{
                     objectFit: "contain",
-                    height: "150px",
-                    width: "150px",
+                    height: "250px",
+                    width: "250px",
                   }}
                 />
               </Grid>
@@ -74,31 +74,31 @@ function WishlistCard({ item, userId }) {
               className="center-item-wish"
               style={{ padding: "20px" }}
             >
-              <Grid item xs={8}>
+              <Grid item xs={12}>
                 <span className="text-wish">
                   <b>Brand: </b>
                   {item.brand}
                 </span>
               </Grid>
-              <Grid item xs={8}>
+              <Grid item xs={12}>
                 <span className="text-wish">
                   <b>Price: </b>
                   {item.price}$
                 </span>
               </Grid>
-              <Grid item xs={8}>
+              <Grid item xs={12}>
                 <span className="text-wish">
                   <b>Description: </b>
                   {item.description}
                 </span>
               </Grid>
-              <Grid item xs={8}>
+              <Grid item xs={12}>
                 <span className="text-wish">
                   <b>Category: </b>
                   {Category[item.category]}
                 </span>
               </Grid>
-              <Grid item xs={8}>
+              <Grid item xs={12}>
                 {verifyCategory()}
               </Grid>
             </Grid>
