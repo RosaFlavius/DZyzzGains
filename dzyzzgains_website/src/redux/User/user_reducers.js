@@ -32,10 +32,10 @@ const userReducer = (state = INITIAL_STATE, action) => {
         country: action.payload ? action.payload.userReducer.country : "",
         city: action.payload ? action.payload.userReducer.city : "",
         address: action.payload ? action.payload.userReducer.address : "",
+        admin: action.payload ? action.payload.userReducer.admin : false,
         isLoggedIn: action.payload
           ? action.payload.userReducer.isLoggedIn
           : false,
-        admin: action.payload ? action.payload.userReducer.admin : false,
       };
     }
     case LOG_IN: {
@@ -60,8 +60,8 @@ const userReducer = (state = INITIAL_STATE, action) => {
         country: userCountry,
         city: userCity,
         address: userAddress,
-        isLoggedIn: true,
         admin: userAdmin,
+        isLoggedIn: true,
       };
     }
     case LOG_OUT: {

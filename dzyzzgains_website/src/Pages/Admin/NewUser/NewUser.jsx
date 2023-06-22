@@ -43,15 +43,16 @@ export default function NewUser() {
   const notify = (response) => {
     if (!response) {
       toast.error("Something went wrong.", {
-        position: toast.POSITION.TOP_CENTER,
-        autoClose: false,
+        position: toast.POSITION.BOTTOM_LEFT,
+        autoClose: 2000,
       });
-    } else if (response.status === 201) {
+    } else {
+      console.log(response);
       toast.success(
-        `User ${response.user.Name} was created with ID: ${response.user.Id}`,
+        `User ${response.data.email} was created with ID: ${response.data.userId}`,
         {
-          position: toast.POSITION.TOP_CENTER,
-          autoClose: false,
+          position: toast.POSITION.BOTTOM_LEFT,
+          autoClose: 2000,
         }
       );
     }

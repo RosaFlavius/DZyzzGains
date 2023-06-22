@@ -10,9 +10,10 @@ export const logIn = (
   country,
   city,
   address,
-  admin
+  admin,
+  isLoggedIn
 ) => {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch({
       type: LOG_IN,
       userId,
@@ -25,12 +26,13 @@ export const logIn = (
       city,
       address,
       admin,
+      isLoggedIn,
     });
   };
 };
 
 export const logOut = (email) => {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch({ type: LOG_OUT, email });
   };
 };

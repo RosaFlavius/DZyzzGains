@@ -143,7 +143,8 @@ const Login = ({ logIn }) => {
       response.data.country,
       response.data.city,
       response.data.address,
-      response.data.admin
+      response.data.admin,
+      true
     );
     notify(true, "login");
     setTimeout(() => {
@@ -468,7 +469,8 @@ const mapDispatchToProps = (dispatch) => {
       country,
       city,
       address,
-      admin
+      admin,
+      isLoggedIn
     ) =>
       dispatch(
         logIn(
@@ -480,7 +482,8 @@ const mapDispatchToProps = (dispatch) => {
           country,
           city,
           address,
-          admin
+          admin,
+          isLoggedIn
         )
       ),
   };

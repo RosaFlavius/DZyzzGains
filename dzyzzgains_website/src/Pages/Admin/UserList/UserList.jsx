@@ -9,6 +9,7 @@ import { Button, Chip, Grid, IconButton } from "@mui/material";
 
 export default function UserList() {
   const [components, setComponents] = useState([]);
+  const [isUpdate, setIsUpdated] = useState(false);
 
   const fetchUsers = async () => {
     const usr = await axios
@@ -35,14 +36,16 @@ export default function UserList() {
   };
 
   const handleDelete = async (id) => {
+    setIsUpdated(true);
     await axios
       .delete(`https://localhost:7177/api/User/${id}`)
       .catch((e) => console.log(e));
+    setIsUpdated(false);
   };
 
   useEffect(() => {
     fetchUsers();
-  }, [components]);
+  }, [isUpdate]);
 
   const columns = [
     { field: "email", headerName: "Email", width: 250 },

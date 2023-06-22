@@ -21,6 +21,7 @@ export default function User() {
   const location = useLocation();
   const id = location.pathname.split("/")[3];
   const [user, setUser] = useState({});
+  const [isUpdated, setIsUpdated] = useState(false);
 
   const admin = [
     {
@@ -61,18 +62,18 @@ export default function User() {
     if (!response) {
       toast.error("Something went wrong.", {
         position: toast.POSITION.TOP_CENTER,
-        autoClose: false,
+        autoClose: 2000,
       });
     } else {
-      toast.success(`User ${response.data.name} was updated successfully!`, {
+      toast.success(`User ${response.data.email} was updated successfully!`, {
         position: toast.POSITION.TOP_CENTER,
-        autoClose: false,
+        autoClose: 2000,
       });
     }
   };
 
   const onSubmitUpdate = async (usr) => {
-    console.log(usr);
+    setIsUpdated(true);
     const response = await axios
       .put("https://localhost:7177/api/User/" + `${id}`, {
         id: id,
@@ -89,11 +90,12 @@ export default function User() {
       })
       .catch((e) => console.log(e));
     notify(response);
+    setIsUpdated(false);
   };
 
   useEffect(() => {
     getUser();
-  }, [id, user]);
+  }, [id, isUpdated]);
   return (
     <Grid container spacing={6} className="products-layout">
       <Grid item xs={12} sm={5} lg={3}>
@@ -367,7 +369,7 @@ export default function User() {
                     type="submit"
                     className="form-button"
                   >
-                    Create
+                    Update User
                   </Button>
                 </Grid>
               </Grid>
